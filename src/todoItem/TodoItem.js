@@ -53,6 +53,7 @@ const TodoItem = ({
         src={editIconSource}
         onClick={toggleEditIcon}
         className="editOrSave"
+        alt="edit-or-save-icon"
       />
       <img src={delIcon} alt="delete" onClick={() => removeTodo(todo.id)} />
     </div>
