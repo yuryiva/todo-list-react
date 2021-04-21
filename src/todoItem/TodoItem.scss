@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  // border: 0.1px solid black;
+  margin: 0;
+}
+
+.todoItem {
+  font-size: 30px;
+  background-color: rgb(241, 237, 229);
+  width: 40%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin: 15px;
+
+  &:hover {
+    background-color: cornsilk;
+    border: 3px solid grey;
+    box-shadow: 3px 3px #ccc;
+  }
+  p {
+    font-size: 16px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    text-align: center;
+  }
+  #checkbox-container {
+    width: 20%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .checkBox {
+    width: 18px;
+    height: 18px;
+    margin-top: 10%;
+  }
+
+  .textArea-container {
+    width: 60%;
+    height: 100%;
+  }
+
+  textarea {
+    height: 70px;
+    width: 100%;
+    border: none;
+    vertical-align: middle;
+    outline: none;
+    resize: none;
+    font-size: 22px;
+  }
+  textarea::-webkit-scrollbar {
+    width: 0;
+  }
+  input {
+    white-space: normal;
+    object-fit: contain;
+    width: 100%;
+  }
+
+  img {
+    width: 20px;
+    height: auto;
+    display: block;
+    margin: 1% 10px auto auto;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    p {
+      font-size: 12px;
+      font-weight: bolder;
+    }
+    textarea {
+      font-size: 17px;
+    }
+  }
+  @media only screen and (max-width: 576px) {
+    p {
+      display: none;
+    }
+    textarea {
+      font-size: 12px;
+    }
+  }
+}
+
+.editOrSave {
+  width: 20px;
+  height: auto;
+}

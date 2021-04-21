@@ -1,0 +1,163 @@
+@mixin input-and-button-main-styling {
+  font-size: 22px;
+  font-weight: 500;
+  border-radius: 10px;
+  border: 2px solid grey;
+  box-shadow: 3px 3px 6px 5px #ccc;
+}
+
+form {
+  h1 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10% auto auto auto;
+    color: aliceblue;
+
+    &:hover {
+      transition: 0.5s;
+      transform: scale(1.1);
+    }
+  }
+
+  section {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input {
+      width: 40%;
+      height: 40px;
+      @include input-and-button-main-styling;
+
+      &:hover {
+        background-color: cornsilk;
+        border: 3px solid grey;
+        box-shadow: 3px 3px #ccc;
+      }
+    }
+    button {
+      width: 15%;
+      margin-left: 5%;
+      @include input-and-button-main-styling;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 6px 6px #ccc;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 25px;
+      font-weight: bolder;
+    }
+
+    section {
+      input {
+        font-size: 18px;
+        font-weight: 300;
+        height: 30px;
+      }
+      button {
+        font-size: 18px;
+        font-weight: 400;
+        width: 25%;
+      }
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+//toggle switch styling:
+
+$toggle-background-color-on: dodgerblue;
+$toggle-background-color-off: darkgray;
+$toggle-control-color: white;
+
+$toggle-width: 50px;
+$toggle-height: 25px;
+$toggle-gutter: 2px;
+
+$toggle-radius: 50%;
+$toggle-control-speed: 0.15s;
+$toggle-control-ease: ease-in;
+
+$toggle-radius: $toggle-height / 2;
+$toggle-control-size: $toggle-height - ($toggle-gutter * 3);
+
+.toggle-control {
+  display: block;
+  position: relative;
+  padding-left: $toggle-width;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  input:checked ~ .control {
+    background-color: $toggle-background-color-on;
+
+    &:after {
+      left: $toggle-width - $toggle-control-size - $toggle-gutter;
+    }
+  }
+
+  .control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $toggle-height;
+    width: $toggle-width;
+    border-radius: $toggle-radius;
+    background-color: $toggle-background-color-off;
+    transition: background-color $toggle-control-speed $toggle-control-ease;
+    margin-top: 1%;
+    @media only screen and (max-width: 600px) {
+      margin-top: 0;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: $toggle-gutter;
+      top: $toggle-gutter;
+      width: $toggle-control-size;
+      height: $toggle-control-size;
+      border-radius: $toggle-radius;
+      background: $toggle-control-color;
+      transition: left $toggle-control-speed $toggle-control-ease;
+    }
+  }
+
+  h3 {
+    color: aliceblue;
+    margin-left: 15px;
+    @media only screen and (max-width: 600px) {
+      font-size: 16px;
+      margin-top: 1.5%;
+    }
+  }
+}
